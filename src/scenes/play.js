@@ -76,7 +76,7 @@ export class Play extends Phaser.Scene {
     bombs = this.physics.add.group();
 
     //  The score
-    scoreText = this.add.text(30, 6, "score: 0", {
+    scoreText = this.add.text(30, 6, "Score: 0", {
       fontSize: "32px",
       fill: "#000",
     });
@@ -97,8 +97,8 @@ export class Play extends Phaser.Scene {
   }
 
   update() {
-    if (score >= 10){
-      this.scene.start("MainMenu");
+    if (score >= 120){
+      this.scene.start("Play2", { score: score });
   }
     if (gameOver) {
       return;
@@ -162,7 +162,7 @@ export class Play extends Phaser.Scene {
     setTimeout(() => {
       // Instrucción que sera llamada despues del segundo
       this.scene.start(
-        "Play2",
+        "Retry",
         { score: score } // se pasa el puntaje como dato a la escena RETRY
       );
     }, 1000); // Ese número es la cantidad de milisegundos
