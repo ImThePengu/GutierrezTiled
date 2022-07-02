@@ -8,14 +8,14 @@ var gameOver;
 var scoreText;
 
 // Clase Play, donde se crean todos los sprites, el escenario del juego y se inicializa y actualiza toda la logica del juego.
-export class Play extends Phaser.Scene {
+export class Play2 extends Phaser.Scene {
   constructor() {
     // Se asigna una key para despues poder llamar a la escena
-    super("Play");
+    super("Play2");
   }
 
   preload() {
-    this.load.tilemapTiledJSON("map", "public/assets/tilemaps/map.json");
+    this.load.tilemapTiledJSON("map", "public/assets/tilemaps/map2.json");
     this.load.image("tilesBelow", "public/assets/images/sky_atlas.png");
     this.load.image("tilesPlatform", "public/assets/images/platform_atlas.png");
   }
@@ -97,9 +97,6 @@ export class Play extends Phaser.Scene {
   }
 
   update() {
-    if (score >= 10){
-      this.scene.start("MainMenu");
-  }
     if (gameOver) {
       return;
     }
@@ -162,7 +159,7 @@ export class Play extends Phaser.Scene {
     setTimeout(() => {
       // Instrucción que sera llamada despues del segundo
       this.scene.start(
-        "Play2",
+        "Retry",
         { score: score } // se pasa el puntaje como dato a la escena RETRY
       );
     }, 1000); // Ese número es la cantidad de milisegundos
