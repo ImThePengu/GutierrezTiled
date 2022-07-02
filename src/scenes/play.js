@@ -38,16 +38,6 @@ export class Play extends Phaser.Scene {
 
     worldLayer.setCollisionByProperty({ collides: true });
 
-    // tiles marked as colliding
-    /*
-    const debugGraphics = this.add.graphics().setAlpha(0.75);
-    worldLayer.renderDebug(debugGraphics, {
-      tileColor: null, // Color of non-colliding tiles
-      collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
-      faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
-    });
-    */
-
     // Find in the Object Layer, the name "dude" and get position
     const spawnPoint = map.findObject("Objetos", (obj) => obj.name === "dude");
     // The player and its settings
